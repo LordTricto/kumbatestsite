@@ -1,0 +1,61 @@
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 5rem;
+}
+.cart_first {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+}
+.cart_first_image {
+  width: 5rem;
+  height: 100%;
+  object-fit: contain;
+}
+.cart_first_image img {
+  height: 100%;
+  width: 100%;
+}
+
+.cart_first_text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-left: 1rem;
+}
+.cart_first_text_name {
+  font-size: 1rem;
+  color: #000000;
+}
+.cart_first_text_restaurant {
+  font-size: 0.8rem;
+  color: #7b7b7b;
+}
+.cart_first_text_category {
+  font-size: 0.8rem;
+  color: #7b7b7b;
+}
+
+.cart_second {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+.cart_second_quantity,
+.cart_second_price {
+  font-size: 0.8rem;
+}
+.cart_second_edit {
+  color: black;
+  font-size: 1rem;
+}
