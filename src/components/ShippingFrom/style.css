@@ -1,0 +1,51 @@
+.shippingFrom {
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 30px 0;
+  background-color: #ffff;
+  width: 100%;
+}
+
+.shippingFrom_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.shippingFrom_head_text {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.shippingFrom_head_edit {
+  color: black;
+  font-size: 0.9rem;
+}
+.shippingFrom_body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+.shippingFrom_body_details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.shippingFrom_body_details_name {
+  font-size: 1rem;
+  color: black;
+}
+.shippingFrom_body_details_address {
+  font-size: 0.8rem;
+  color: #7b7b7b;
+  width: 20ch;
+}
+.shippingFrom_body_seeAll {
+  font-size: 0.8rem;
+  color: #7b7b7b;
+  cursor: pointer;
+}

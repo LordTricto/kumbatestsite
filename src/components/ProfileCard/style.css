@@ -1,0 +1,52 @@
+.profileCard_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.profileCard_top_image {
+  width: 100%;
+  padding-top: 100%;
+  object-fit: contain;
+  border-radius: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.profileCard_top_image img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.profileCard_top_name {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.profileCard_bottom {
+  padding-top: 5rem;
+}
+.profileCard_bottom_phone,
+.profileCard_bottom_address {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.profileCard_bottom_address {
+  padding-top: 1rem;
+}
+.profileCard_bottom_phone_icon,
+.profileCard_bottom_address_icon {
+  font-size: 1rem;
+}
+.profileCard_bottom_phone_text,
+.profileCard_bottom_address_text {
+  padding-left: 1rem;
+  font-size: 1rem;
+  color: #7b7b7b;
+}

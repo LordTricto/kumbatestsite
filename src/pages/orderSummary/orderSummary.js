@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { fetchData } from "../../redux/items/itemsAction/itemsAction";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 import {
   selectCartSubTotal,
   selectCartItemsCount,
@@ -11,6 +12,9 @@ import {
   selectCartTotal,
 } from "../../redux/items/itemsSelector/itemsSelector";
 import CartItem from "../../components/CartItem/CartItem";
+import ShippingFromCard from "../../components/ShippingFrom/ShippingFrom";
+import ShippingToCard from "../../components/ShippingTo/ShippingTo";
+import usePageTransition from "../../hooks/pageTransition";
 import "./style.css";
 
 const mapState = (state) => {
@@ -27,6 +31,7 @@ const mapState = (state) => {
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
+  const [pageTransition] = usePageTransition();
   const {
     items,
     restaurant,
@@ -43,7 +48,12 @@ const OrderSummary = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <motion.div
+      variants={pageTransition}
+      animate="animate"
+      exit={"exit"}
+      className="container"
+    >
       <main className="main">
         {/* Head of Page */}
         <div className="main_head">
@@ -81,58 +91,8 @@ const OrderSummary = () => {
                   </span>
                 </div>
                 <div className="main_body_body_details_delivery_body">
-                  <div className="main_body_body_details_delivery_body_shippingFrom">
-                    <div className="main_body_body_details_delivery_body_shippingFrom_head">
-                      <span className="main_body_body_details_delivery_body_shippingFrom_head_text">
-                        Shipping From
-                      </span>
-                      <Link to="/">
-                        <span className="main_body_body_details_delivery_body_shippingFrom_head_edit">
-                          Change orders
-                        </span>
-                      </Link>
-                    </div>
-                    <div className="main_body_body_details_delivery_body_shippingFrom_body">
-                      <div className="main_body_body_details_delivery_body_shippingFrom_body_details">
-                        <span className="main_body_body_details_delivery_body_shippingFrom_body_details_name">
-                          {restaurant.name}
-                        </span>
-                        <span className="main_body_body_details_delivery_body_shippingFrom_body_details_address">
-                          {restaurant.street}, {restaurant.city},{" "}
-                          {restaurant.state}
-                        </span>
-                      </div>
-                      <span className="main_body_body_details_delivery_body_shippingFrom_body_seeAll">
-                        See All
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="main_body_body_details_delivery_body_shippingTo">
-                    <div className="main_body_body_details_delivery_body_shippingTo_head">
-                      <span className="main_body_body_details_delivery_body_shippingTo_head_text">
-                        Shipping To
-                      </span>
-                      <Link to="/">
-                        <span className="main_body_body_details_delivery_body_shippingTo_head_edit">
-                          Edit
-                        </span>
-                      </Link>
-                    </div>
-                    <div className="main_body_body_details_delivery_body_shippingTo_body">
-                      <div className="main_body_body_details_delivery_body_shippingTo_body_details">
-                        <span className="main_body_body_details_delivery_body_shippingTo_body_details_top">
-                          {user.name}
-                        </span>
-                        <span className="main_body_body_details_delivery_body_shippingTo_body_details_middle">
-                          {user.address}
-                        </span>
-                        <span className="main_body_body_details_delivery_body_shippingTo_body_details_bottom">
-                          {user.phone}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <ShippingFromCard {...restaurant} />
+                  <ShippingToCard {...user} />
                 </div>
               </div>
               {/* Shipping Details */}
@@ -245,7 +205,7 @@ const OrderSummary = () => {
         </div>
         {/* Body of Page */}
       </main>
-    </div>
+    </motion.div>
   );
 };
 

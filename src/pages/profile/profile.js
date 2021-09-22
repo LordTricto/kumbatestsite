@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchData } from "../../redux/items/itemsAction/itemsAction";
 import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhoneAlt, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 import PreferenceCard from "../../components/PreferenceCard/PreferenceCard";
-import smile from "../../assets/smile.jpg";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import usePageTransition from "../../hooks/pageTransition";
 import "./style.css";
 const mapState = (state) => {
   return {
@@ -16,6 +16,7 @@ const mapState = (state) => {
 };
 const Profile = () => {
   const dispatch = useDispatch();
+  const [pageTransition] = usePageTransition();
   const { user, likes, dislikes } = useSelector(mapState);
   useEffect(() => {
     // Fetch Data
@@ -23,38 +24,16 @@ const Profile = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <motion.div
+      variants={pageTransition}
+      animate="animate"
+      exit="exit"
+      className="container"
+    >
       <div className="profile_content">
         {/* Side Content*/}
         <div className="profile_content_aside">
-          {/* Side Content Picture and Name*/}
-          <div className="profile_content_aside_top">
-            <div className="profile_content_aside_top_image">
-              <img src={smile} alt="smile" />
-            </div>
-            <span className="profile_content_aside_top_name">{user.name}</span>
-          </div>
-          {/* Side Content Picture and Name*/}
-          {/* Side Content Address and Phone Number*/}
-          <div className="profile_content_aside_bottom">
-            <div className="profile_content_aside_bottom_phone">
-              <div className="profile_content_aside_bottom_phone_icon">
-                <FontAwesomeIcon icon={faPhoneAlt} />
-              </div>
-              <div className="profile_content_aside_bottom_phone_text">
-                {user.phone}
-              </div>
-            </div>
-            <div className="profile_content_aside_bottom_address">
-              <div className="profile_content_aside_bottom_address_icon">
-                <FontAwesomeIcon icon={faMapMarkerAlt} />
-              </div>
-              <div className="profile_content_aside_bottom_address_text">
-                {user.address}
-              </div>
-            </div>
-          </div>
-          {/* Side Content Address and Phone Number*/}
+          <ProfileCard {...user} />
         </div>
         {/* Side Content*/}
         {/* Main Content*/}
@@ -92,7 +71,7 @@ const Profile = () => {
         </div>
         {/* Main Content*/}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

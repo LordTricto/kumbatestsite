@@ -14,87 +14,7 @@
   width: 100%;
   border-radius: 0 0 30px 0;
 }
-.profile_content_aside_top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-.profile_content_aside_top_image {
-  width: 100%;
-  padding-top: 100%;
-  object-fit: contain;
-  border-radius: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.profile_content_aside_top_image img {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-.profile_content_aside_top_name {
-  padding-top: 1rem;
-  font-size: 1.2rem;
-}
 
-.profile_content_aside_bottom {
-  padding-top: 5rem;
-}
-.profile_content_aside_bottom_phone,
-.profile_content_aside_bottom_address {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-}
-.profile_content_aside_bottom_address {
-  padding-top: 1rem;
-}
-.profile_content_aside_bottom_phone_icon,
-.profile_content_aside_bottom_address_icon {
-  font-size: 1rem;
-}
-.profile_content_aside_bottom_phone_text,
-.profile_content_aside_bottom_address_text {
-  padding-left: 1rem;
-  font-size: 1rem;
-  color: #7b7b7b;
-}
-
-.main_body_body_details_delivery,
-.main_body_body_details_payment,
-.main_body_body_details_cart,
-.main_body_body_summary {
-  padding: 1rem 1.5rem 1.5rem 1.5rem;
-  border-radius: 0 0 30px 0;
-  background-color: #f6f6f6;
-}
-.main_body_body_details_delivery_head_header,
-.main_body_body_details_payment_head_header,
-.main_body_body_details_cart_head_header,
-.main_body_body_summary_head_header {
-  font-weight: 500;
-  font-size: 1.25rem;
-}
-.main_body_body_details_delivery_body {
-  display: grid;
-  grid-gap: 1.5rem;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.main_body_body_details_delivery_body_shippingFrom,
-.main_body_body_details_delivery_body_shippingTo {
-  padding: 1rem 1.5rem;
-  border-radius: 0 0 30px 0;
-  background-color: #ffff;
-  width: 100%;
-}
 .profile_content_main > div:not(:first-child) {
   margin-top: 2rem;
 }
@@ -128,4 +48,18 @@
 .profile_content_main_likes_body > div:not(:first-child),
 .profile_content_main_dislikes_body > div:not(:first-child) {
   margin-left: 1rem;
+}
+
+/* iPad */
+@media only screen and (max-width: 770px) {
+  .profile_content {
+    grid-template-columns: 1fr;
+  }
+  /* .profile_content_aside {
+    display: none;
+  } */
+  /* .profile_content_main {
+    width: 100%;
+    display: none;
+  } */
 }
